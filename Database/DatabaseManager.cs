@@ -16,6 +16,12 @@ namespace HealthTechClinic.Database
             _connectionString = connectionString;
         }
 
+        public DatabaseManager(string db_name,string password)
+        {
+            // Default connection string for local development
+            _connectionString = $"Server=localhost;Database={db_name};User=root;Password={password};";
+        }
+
         public MySqlConnection CreateOpenConnection()
         {
             var connection = new MySqlConnection(_connectionString);
